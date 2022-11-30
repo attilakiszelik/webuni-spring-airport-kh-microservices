@@ -1,4 +1,4 @@
-server:
-	port: 8083
 currency:
-	exchangePremium: 0.02
+  exchangePremium: 0.02
+server:
+  port: 8083

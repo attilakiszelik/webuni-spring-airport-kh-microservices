@@ -1,4 +1,12 @@
-server:port: 8081
-spring:application:name: config
-spring:profiles:active: native
-spring:cloud:config:server:native:search-locations: classpath:/config
+server:
+  port: 8081
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+  profiles:
+    active: native

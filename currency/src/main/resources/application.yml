@@ -1,4 +1,7 @@
-spring:application:name: currency
-spring:config:import: optional:configserver:http://localhost:8080
 currency:
-    exchangePremium: 0.01
+  exchangePremium: 0.01
+spring:
+  application:
+    name: currency
+  config:
+    import: optional:configserver:http://localhost:8081
