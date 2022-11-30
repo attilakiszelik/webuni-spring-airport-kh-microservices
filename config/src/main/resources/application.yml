@@ -10,3 +10,7 @@ spring:
           search-locations: classpath:/config
   profiles:
     active: native
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8085/eureka
