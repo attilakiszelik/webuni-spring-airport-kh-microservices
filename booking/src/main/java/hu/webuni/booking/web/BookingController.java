@@ -26,7 +26,7 @@ public class BookingController {
     CurrencyApi currencyApi;
     @Autowired
     FlightsApi flightsApi;
-
+    
     @PostMapping("/ticket")
     public PurchaseData buyTicket(@RequestBody TicketData ticketData) {
         

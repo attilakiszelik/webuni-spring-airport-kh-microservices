@@ -3,14 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	
+
 	<groupId>hu.webuni</groupId>
 	<artifactId>currency</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -22,12 +22,12 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-       
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -39,28 +39,35 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
+		<!-- minden microservice függ a saját APIjától is -->
 		<dependency>
-		  <groupId>hu.webuni</groupId>
-		  <artifactId>currency-api</artifactId>
-		  <version>0.0.1-SNAPSHOT</version>
+			<groupId>hu.webuni</groupId>
+			<artifactId>currency-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
+		<!-- ebből - és az application.yml-ből - tudja, hogy ő egy spring cloud 
+			kliens és induláskor le kell kérdezni a szervertől a rá vonatkozó configokat -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		
+
+		<!-- ebből - és az application.yml-ből - tudja, hogy ő egy eureka kliens 
+			és induláskor be kell regisztrálnia magát a szerverre -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		
+
 	</dependencies>
-	
+
 	<dependencyManagement>
+
 		<dependencies>
-		
+
+			<!-- spring-cloud függőségekhez használja a <spring-cloud.version> tagben megadott verziószámot -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -68,8 +75,9 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			
+
 		</dependencies>
+
 	</dependencyManagement>
 
 	<build>
